@@ -1,4 +1,3 @@
-count = 0
 with open('input.txt') as inp:
     m = inp.readlines()
     i, j, t = 0, 0, 1
@@ -15,5 +14,3 @@ with open('input.txt') as inp:
         print('tree is ', tree)
         t *= tree
     print(t)
-    
-print(count)

@@ -6,11 +6,9 @@ with open('input.txt') as inp:
         i = 0
         j = 0
         while i < len(m):
-            print(i, j)
             if m[i][j] == '#':
                 tree += 1
             i += k[1]
             j = (j + k[0]) % (len(m[0]) - 1)
-        print('tree is ', tree)
         t *= tree
     print(t)

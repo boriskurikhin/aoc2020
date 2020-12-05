@@ -41,7 +41,7 @@ with open('input.txt') as inp:
                 if int(val) < 2020 or int(val) > 2030:
                     continue
             elif key == 'hgt':
-                if val[::-1][:2] not in ['mc', 'ni']:
+                if val[::-1][:2] not in ['mc    ', 'ni']:
                     continue
                 if val[::-1][:2] == 'mc' and (int(val[0:len(val)-2]) < 150 or int(val[0:len(val)-2]) > 193): continue
                 if val[::-1][:2] == 'ni' and (int(val[0:len(val)-2]) < 59 or int(val[0:len(val)-2]) > 76): continue

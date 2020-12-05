@@ -2,7 +2,7 @@
 with open('input.txt') as inp:
     # kind of just looked at all seats, found upper & lower bound
     # and went from there...
-    seats = set([_ for _ in range(63, 936)])
+    seats = set(range(63, 936))
     lines = inp.readlines()
     total = -1
     for line in lines:

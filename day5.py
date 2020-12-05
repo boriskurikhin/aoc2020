@@ -4,7 +4,6 @@ with open('input.txt') as inp:
     # and went from there...
     seats = set([_ for _ in range(63, 936)])
     lines = inp.readlines()
-    a = [[False] * 8] * 128
     total = -1
     for line in lines:
         line = line.strip()

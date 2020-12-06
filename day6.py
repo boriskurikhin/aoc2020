@@ -1,5 +1,4 @@
 # set + counting idea
-
 with open('input.txt') as inp:
     lines = inp.readlines()
     ans, people, sum = [0] * 26, 0, 0

@@ -1,12 +1,12 @@
+# set + counting idea
+
 with open('input.txt') as inp:
     lines = inp.readlines()
     ans, people, sum = [0] * 26, 0, 0
     for line in lines:
         line = line.strip()
         if line == "":
-            for i in range(26):
-                if ans[i] == people:
-                    sum += 1
+            sum += len(list(filter(lambda x: x == people, ans)))
             people = 0
             ans = [0] * 26
         else:

@@ -41,7 +41,6 @@ with open('input.txt') as inp:
             if 'shiny gold' in bag and quantity > 0:
                 return True
             for bags in map[bag]:
-                k, n = bags
                 q.append(bags)
         return False
 

@@ -2,7 +2,7 @@
 # graph searches, bfs & dfs
 with open('input.txt') as inp:
     lines = inp.readlines()
-    answer1 = answer2 = 0
+    answer1 = 0
     contains = {}
     for line in lines:
         line = line.strip().split('contain')
@@ -19,8 +19,6 @@ with open('input.txt') as inp:
 
     # dfs
     def dfs(b, map):
-        global answer2
-
         _, bag = b
         ans = 1
 

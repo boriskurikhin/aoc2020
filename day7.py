@@ -22,12 +22,13 @@ with open('input.txt') as inp:
         global answer2
 
         _, bag = b
-        answer2 += 1
+        ans = 1
 
         for pair in map[bag]:
             q, bn = pair
-            for i in range(q):
-                dfs(pair, map)
+            ans += q * dfs(pair, map)
+
+        return ans
 
 
     def bfs(b, map):
@@ -50,6 +51,4 @@ with open('input.txt') as inp:
             answer1 += 1
 
     # run the dfs from shiny gold
-    dfs((1, 'shiny gold'), contains)
-
-    print(answer1 - 1, answer2 - 1)
+    print(answer1 - 1, dfs((1, 'shiny gold'), contains) - 1)

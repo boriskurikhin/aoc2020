@@ -13,19 +13,11 @@ with open('input.txt') as ___:
     def simulate():
         visited = set()
     
-        p = 0
-        acc = 0
-        last = 0
+        p = acc = last = 0
 
-        while True:
-            if p >= len(lines):
-                print(acc)
-                return 
-
-            inst = lines[p].split(' ')
-            command = inst[0]
-            sign = inst[1][0]
-            value = int(inst[1][1:])
+        while p < len(lines):
+            command, val = lines[p].split(' ')
+            sign, value = val[0], int(val[1:])
 
             if p in visited:
                 return
@@ -43,6 +35,8 @@ with open('input.txt') as ___:
                 last = p
                 if sign == '-': p = p - value
                 else: p = p + value
+        
+        print(acc)
     
     for j in range(len(lines)):
         if 'jmp' in lines[j]:

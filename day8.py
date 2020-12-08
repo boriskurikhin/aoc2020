@@ -27,14 +27,12 @@ with open('input.txt') as ___:
             if command == 'nop':
                 last = p
                 p += 1
-            elif command == 'acc':
-                if sign == '-': acc -= value
-                else: acc += value
+            elif command == 'acc': 
+                acc += -value if sign == '-' else value
                 p += 1
             else:
                 last = p
-                if sign == '-': p = p - value
-                else: p = p + value
+                p += -value if sign == '-' else value
         
         print(acc)
     

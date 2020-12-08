@@ -17,7 +17,7 @@ with open('input.txt') as ___:
 
         while p < len(lines):
             command, val = lines[p].split(' ')
-            sign, value = val[0], int(val[1:])
+            value = int(val)
 
             if p in visited:
                 return
@@ -28,11 +28,11 @@ with open('input.txt') as ___:
                 last = p
                 p += 1
             elif command == 'acc': 
-                acc += -value if sign == '-' else value
+                acc += value
                 p += 1
             else:
                 last = p
-                p += -value if sign == '-' else value
+                p += value
         
         print(acc)
     

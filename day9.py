@@ -23,8 +23,7 @@ with open('input.txt') as ___:
             for l in range(0, i):
                 sm = la = lines[l]
                 for r in range(l + 1, i):
-                    sm = min(sm, lines[r])
-                    la = max(la, lines[r])
+                    sm, la = min(sm, lines[r]), max(la, lines[r])
                     if prefix[r] - prefix[l] + lines[l] == lines[i]:
                         print('2:', sm + la)
                         exit()

@@ -7,8 +7,8 @@
 with open('input.txt') as ___:
     lines = list(map(lambda x: x.strip(), ___.readlines()))
     y, x = 0, 0
-    wy,wx = 1, 10
-
+    wy, wx = 1, 10
+    
     for line in lines:
         d = line[0]
         k = int(line[1:])

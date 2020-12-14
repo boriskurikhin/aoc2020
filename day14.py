@@ -24,9 +24,9 @@ with open('input.txt') as ___:
 
             # powerset
             N = 2 ** len(quantum)
-            for count in range(N):
+            for isSet in range(N):
                 for k in range(len(quantum)):
-                    if count & (1 << k): address |= (1 << quantum[k])
+                    if isSet & (1 << k): address |= (1 << quantum[k])
                     else: address &= ~(1 << quantum[k])
                 memory[address] = value
 

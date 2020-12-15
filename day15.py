@@ -7,7 +7,7 @@ with open('input.txt') as ___:
         store[j] = i + 1
         time += 1 
     last = lines[-1]
-    while time != 2020:
+    while time != 30000000:
         if last in store:
             timeDiff = time - store[last]
             store[last] = time

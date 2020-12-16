@@ -1,6 +1,5 @@
 '''
-    Yeah...this one is a bit.
-    Not great lol. But it works, quite fast.
+    Greedy algo + a lot of parsing
 '''
 def check_ticket(ticket, rules):
     for name in rules:
@@ -10,57 +9,6 @@ def check_ticket(ticket, rules):
         if (ticket >= a[0] and ticket <= a[1]) or (ticket >= b[0] and ticket <= b[1]):
             return True
     return False
-
-import copy
-
-memo = set()
-
-def checkWinner(options, N):
-    solutions = set()
-    for name in options:
-        if len(options[name]) != 1:
-            return False
-        solutions.add(options[name][0])
-    return len(solutions) == N
-
-def existsEmpty(options):
-    for name in options:
-        if len(options[name]) == 0:
-            return True
-    return False
-
-def solveOptimization(options, N, solutionsFound, z, myTicket):
-
-    # if existsEmpty(options):
-    #     return
-
-    if solutionsFound == N:
-        # print('winner found', z)
-        ans = 1
-        for tup in z:
-            name, col = tup
-            if name.startswith('departure'):
-                ans *= myTicket[col]
-        print(ans)
-        exit(0)
-
-    newOptions = copy.deepcopy(options)
-    for name in dict(sorted(options.items(), key=lambda item: len(item))):
-        candidates = options[name]
-        for candidate in candidates:
-            
-            newZ = copy.deepcopy(z)
-            newZ.append((name, candidate))
-
-            # remove this option
-            O = copy.deepcopy(options)
-            del O[name]
-            
-            for n in O:
-                if candidate in O[n]:
-                    O[n].remove(candidate)
-
-            solveOptimization(O, N, solutionsFound + 1, newZ, myTicket)
 
 def candidates(tickets, r, options):
     a = rules[r][0]
@@ -137,12 +85,21 @@ with open('input.txt') as ___:
     for i in keys:
         heappush(heap, (len(options[i]), i, options[i]) )
 
+    # greedy algo
+    ans = []
+    claimed = set()
+
     while len(heap):
         L, name, arr = heappop(heap)
-        sortedOpts[name] = arr
+        O = list(set(arr) - claimed)
+        ans.append((name, O[0]))
+        claimed.add(O[0])
 
-    solveOptimization(sortedOpts, len(keys), 0, [], myTicket)
-    
+    ans2 = 1
 
+    for tup in ans:
+        name, colIdx = tup
+        if name.startswith('departure'):
+            ans2 *= myTicket[colIdx]
 
-    
+    print(ans2)

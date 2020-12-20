@@ -1,4 +1,7 @@
-with open('input.txt') as ___:
+'''
+    only got part 1 so far.
+'''
+with open('input .txt') as ___:
     lines =  ___.readlines()
     rules = {}
     i = 0

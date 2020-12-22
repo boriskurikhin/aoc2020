@@ -6,4 +6,7 @@ Only posting `part 2` solutions on here.
 
 Python3 ftw this year. There's some brute force here and there, 
 
-... I'm desparate to get to the solution quickly.
+--
+
+Got bored doing it after day 19. 
+Did not hit the target goal, but I did get 343rd place on Day 15.
